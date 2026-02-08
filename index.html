@@ -1,112 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Will You Be My Valentine?</title>
-
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-        overflow: hidden; /* 🔴 prevents white page */
-        font-family: Arial, sans-serif;
-    }
-
-    body {
-        background: url('WhatsApp Image 2026-01-15 at 15.10.56.jpeg') center/cover no-repeat;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .card {
-        background: rgba(0, 0, 0, 0.55);
-        padding: 30px;
-        border-radius: 20px;
-        text-align: center;
-        width: 90%;
-        max-width: 420px;
-        backdrop-filter: blur(6px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        position: relative;
-    }
-
-    h1 {
-        color: white;
-        font-size: 1.8em;
-        margin-bottom: 25px;
-        line-height: 1.3;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        position: relative;
-    }
-
-    button {
-        padding: 14px 26px;
-        font-size: 1.2em;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    #yes {
-        background: #ff69b4;
-        color: white;
-    }
-
-    #yes:hover {
-        transform: scale(1.1);
-        background: #ff1493;
-    }
-
-    #no {
-        background: #dc143c;
-        color: white;
-        position: absolute;
-        right: 0;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://thumbs.dreamstime.com/z/ds-initial-heart-shape-red-colored-logo-ds-initial-logo-letter-heart-shape-red-colored-logo-design-wedding-invitation-139344860.jpg?ct=jpeg'); /* Beautiful Valentine's wallpaper from Unsplash */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: #ff69b4; /* Pink for Yes */
+            color: white;
+        }
+        #yes:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        #no {
+            background-color: #dc143c; /* Crimson for No */
+            color: white;
+            position: relative;
+        }
+        #no:hover {
+            /* This will be overridden by JS, but just in case */
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="card">
-    <h1>
-        Hey Satya,<br>
-        Will you be my Valentine? 🫶<br><br>
-        <small>(Click No if you don't want to 😌)</small>
-    </h1>
-
+    <h1>Hey Satya, Will you be my Valentine? 🫶 Click No if you don't want to be </h1>
     <div class="buttons">
         <button id="yes" onclick="sayYes()">Yes</button>
         <button id="no">No</button>
     </div>
-</div>
 
-<script>
-    const noBtn = document.getElementById("no");
+    <script>
+        const noButton = document.getElementById('no');
 
-    function moveNo() {
-        const x = Math.random() * (window.innerWidth - 120);
-        const y = Math.random() * (window.innerHeight - 120);
+        // Function to make the No button move away when hovered or clicked
+        function moveNoButton() {
+            const randomX = Math.random() * (window.innerWidth - 100); // Random position within screen width
+            const randomY = Math.random() * (window.innerHeight - 100); // Random position within screen height
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
 
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    }
+        // Add event listeners for hover and click
+        noButton.addEventListener('mouseover', moveNoButton);
+        noButton.addEventListener('click', moveNoButton);
 
-    noBtn.addEventListener("touchstart", moveNo); // 📱 mobile
-    noBtn.addEventListener("mouseover", moveNo);  // 💻 desktop
-
-    function sayYes() {
-        alert("Yay! I love you ❤️ Happy Valentine’s Day 💖");
-    }
-</script>
-
+        // Function for Yes button
+        function sayYes() {
+            alert("Yay! I love you Satya Forever! ❤️ Advance Happy Valentine's Day!");
+            // You can customize this, e.g., redirect to another page or show more content
+        }
+    </script>
 </body>
-</html>
+
+</html> 
+
+

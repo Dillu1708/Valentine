@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); /* Beautiful Valentine's wallpaper from Unsplash */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: #ff69b4; /* Pink for Yes */
+            color: white;
+        }
+        #yes:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+        }
+        #no {
+            background-color: #dc143c; /* Crimson for No */
+            color: white;
+            position: relative;
+        }
+        #no:hover {
+            /* This will be overridden by JS, but just in case */
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine?</h1>
+    <div class="buttons">
+        <button id="yes" onclick="sayYes()">Yes</button>
+        <button id="no">No</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+
+        // Function to make the No button move away when hovered or clicked
+        function moveNoButton() {
+            const randomX = Math.random() * (window.innerWidth - 100); // Random position within screen width
+            const randomY = Math.random() * (window.innerHeight - 100); // Random position within screen height
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        // Add event listeners for hover and click
+        noButton.addEventListener('mouseover', moveNoButton);
+        noButton.addEventListener('click', moveNoButton);
+
+        // Function for Yes button
+        function sayYes() {
+            alert("Yay! I love you! ❤️ Happy Valentine's Day!");
+            // You can customize this, e.g., redirect to another page or show more content
+        }
+    </script>
+</body>
+</html>

@@ -4,90 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will You Be My Valentine?</title>
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-image: url('WhatsApp Image 2026-01-15 at 15.10.56.jpeg'); /* Beautiful Valentine's wallpaper from Unsplash */
+            background-image: url('background.jpg'); /* your photo */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             height: 100vh;
+            margin: 0;
+
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        /* Glass card */
+        .card {
+            background: rgba(0, 0, 0, 0.55);
+            padding: 35px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 90%;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin: 0;
         }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+
         .buttons {
             display: flex;
             gap: 20px;
+            justify-content: center;
         }
+
         button {
             padding: 15px 30px;
-            font-size: 1.5em;
+            font-size: 1.4em;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         #yes {
-            background-color: #ff69b4; /* Pink for Yes */
+            background-color: #ff69b4;
             color: white;
         }
+
         #yes:hover {
             background-color: #ff1493;
             transform: scale(1.1);
         }
+
         #no {
-            background-color: #dc143c; /* Crimson for No */
+            background-color: #dc143c;
             color: white;
             position: relative;
         }
-        #no:hover {
-            /* This will be overridden by JS, but just in case */
+
+        /* Mobile friendly */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            button {
+                font-size: 1.2em;
+                padding: 12px 22px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <h1>Hey Satya, Will you be my Valentine? 🫶 Click No if you don't want to be </h1>
-    <div class="buttons">
-        <button id="yes" onclick="sayYes()">Yes</button>
-        <button id="no">No</button>
+
+    <div class="card">
+        <h1>
+            Hey Satya, <br>
+            Will you be my Valentine? 🫶 <br><br>
+            <small>(Click No if you don't want to be 😌)</small>
+        </h1>
+
+        <div class="buttons">
+            <button id="yes" onclick="sayYes()">Yes</button>
+            <button id="no">No</button>
+        </div>
     </div>
 
     <script>
         const noButton = document.getElementById('no');
 
-        // Function to make the No button move away when hovered or clicked
         function moveNoButton() {
-            const randomX = Math.random() * (window.innerWidth - 100); // Random position within screen width
-            const randomY = Math.random() * (window.innerHeight - 100); // Random position within screen height
+            const randomX = Math.random() * (window.innerWidth - 120);
+            const randomY = Math.random() * (window.innerHeight - 120);
             noButton.style.position = 'absolute';
             noButton.style.left = randomX + 'px';
             noButton.style.top = randomY + 'px';
         }
 
-        // Add event listeners for hover and click
         noButton.addEventListener('mouseover', moveNoButton);
         noButton.addEventListener('click', moveNoButton);
 
-        // Function for Yes button
         function sayYes() {
-            alert("Yay! I love you! ❤️ Happy Valentine's Day!");
-            // You can customize this, e.g., redirect to another page or show more content
+            alert("Yay! I love you Satya ❤️ Advance Happy Valentine’s Day 💖");
         }
     </script>
+
 </body>
-
 </html>
-
-
-
-

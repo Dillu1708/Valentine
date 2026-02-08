@@ -1,121 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
 
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('WhatsApp Image 2026-01-15 at 15.10.56.jpeg'); /* your photo */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            margin: 0;
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden; /* 🔴 prevents white page */
+        font-family: Arial, sans-serif;
+    }
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    body {
+        background: url('WhatsApp Image 2026-01-15 at 15.10.56.jpeg') center/cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        /* Glass card */
-        .card {
-            background: rgba(0, 0, 0, 0.55);
-            padding: 35px 40px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 90%;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
+    .card {
+        background: rgba(0, 0, 0, 0.55);
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        width: 90%;
+        max-width: 420px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        position: relative;
+    }
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 25px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
+    h1 {
+        color: white;
+        font-size: 1.8em;
+        margin-bottom: 25px;
+        line-height: 1.3;
+    }
 
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+    }
 
-        button {
-            padding: 15px 30px;
-            font-size: 1.4em;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    button {
+        padding: 14px 26px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-        #yes {
-            background-color: #ff69b4;
-            color: white;
-        }
+    #yes {
+        background: #ff69b4;
+        color: white;
+    }
 
-        #yes:hover {
-            background-color: #ff1493;
-            transform: scale(1.1);
-        }
+    #yes:hover {
+        transform: scale(1.1);
+        background: #ff1493;
+    }
 
-        #no {
-            background-color: #dc143c;
-            color: white;
-            position: relative;
-        }
-
-        /* Mobile friendly */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8em;
-            }
-            button {
-                font-size: 1.2em;
-                padding: 12px 22px;
-            }
-        }
-    </style>
+    #no {
+        background: #dc143c;
+        color: white;
+        position: absolute;
+        right: 0;
+    }
+</style>
 </head>
 
 <body>
 
-    <div class="card">
-        <h1>
-            Hey Satya, <br>
-            Will you be my Valentine? 🫶 <br><br>
-            <small>(Click No if you don't want to be 😌)</small>
-        </h1>
+<div class="card">
+    <h1>
+        Hey Satya,<br>
+        Will you be my Valentine? 🫶<br><br>
+        <small>(Click No if you don't want to 😌)</small>
+    </h1>
 
-        <div class="buttons">
-            <button id="yes" onclick="sayYes()">Yes</button>
-            <button id="no">No</button>
-        </div>
+    <div class="buttons">
+        <button id="yes" onclick="sayYes()">Yes</button>
+        <button id="no">No</button>
     </div>
+</div>
 
-    <script>
-        const noButton = document.getElementById('no');
+<script>
+    const noBtn = document.getElementById("no");
 
-        function moveNoButton() {
-            const randomX = Math.random() * (window.innerWidth - 120);
-            const randomY = Math.random() * (window.innerHeight - 120);
-            noButton.style.position = 'absolute';
-            noButton.style.left = randomX + 'px';
-            noButton.style.top = randomY + 'px';
-        }
+    function moveNo() {
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 120);
 
-        noButton.addEventListener('mouseover', moveNoButton);
-        noButton.addEventListener('click', moveNoButton);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
 
-        function sayYes() {
-            alert("Yay! I love you Satya ❤️ Advance Happy Valentine’s Day 💖");
-        }
-    </script>
+    noBtn.addEventListener("touchstart", moveNo); // 📱 mobile
+    noBtn.addEventListener("mouseover", moveNo);  // 💻 desktop
+
+    function sayYes() {
+        alert("Yay! I love you ❤️ Happy Valentine’s Day 💖");
+    }
+</script>
 
 </body>
 </html>
-
